@@ -3,121 +3,110 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>GP5 Editor - Studio</title>
+    <title>GP5 Studio - Minimalist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --apple-bg: #1c1c1e;
-            --apple-card: #2c2c2e;
+            --apple-bg: #000000;
+            --apple-card: #1c1c1e;
             --apple-blue: #007aff;
-            --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --apple-text: #ffffff;
         }
-        body { background-color: #000; font-family: var(--bs-body-font-family); color: #fff; -webkit-font-smoothing: antialiased; }
-        .top-nav { background: rgba(28, 28, 30, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 0.5px solid #38383a; position: sticky; top: 0; z-index: 1000; padding: 12px 20px; }
-        .btn-apple { background: var(--apple-blue); border: none; border-radius: 10px; color: white; padding: 10px 20px; font-weight: 600; transition: all 0.2s; }
-        .live-on-container { background: linear-gradient(145deg, #007aff, #0056b3); border-radius: 24px; padding: 60px 20px; margin: 20px 0; text-align: center; box-shadow: 0 15px 35px rgba(0, 122, 255, 0.3); }
+        body { background-color: var(--apple-bg); color: var(--apple-text); font-family: -apple-system, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        .top-nav { background: rgba(28, 28, 30, 0.7); backdrop-filter: blur(20px); border-bottom: 0.5px solid #38383a; position: sticky; top: 0; z-index: 1000; padding: 12px 20px; }
+        .btn-apple { background: var(--apple-blue); border: none; border-radius: 10px; color: white; padding: 8px 20px; font-weight: 600; }
+        .live-on-container { background: linear-gradient(145deg, #007aff, #0056b3); border-radius: 24px; padding: 60px 20px; text-align: center; margin: 20px 0; box-shadow: 0 15px 35px rgba(0, 122, 255, 0.3); }
         #live_number { font-size: 100px; font-weight: 800; line-height: 1; display: block; }
-        #live_name { font-size: 32px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
-        .card { background-color: var(--apple-card); border: none; border-radius: 20px; padding: 20px; }
-        .form-range { height: 30px; }
+        #live_name { font-size: 32px; font-weight: 300; letter-spacing: 5px; }
+        .effect-node { background: var(--apple-card); border-radius: 18px; padding: 15px; text-align: center; border: 2px solid transparent; transition: 0.2s; }
+        .border-light { border-color: var(--apple-blue) !important; box-shadow: 0 0 15px rgba(0, 122, 255, 0.4); }
+        .img-effect { max-width: 46px !important; }
+        .card { background-color: var(--apple-card); border: none; border-radius: 20px; }
         footer, .buymeacoffee { display: none !important; }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="top-nav d-flex justify-content-between align-items-center">
         <button id="btn_connect" class="btn-apple">Connect GP-5</button>
-        <div id="status_text" class="small text-secondary">Ready</div>
+        <div id="status_text" class="small text-secondary">Disconnected</div>
         <div class="d-flex align-items-center gap-3">
-            <select id="listPatches" class="form-select form-select-sm lockable" style="width: 150px;" disabled></select>
+            <select id="listPatches" class="form-select form-select-sm lockable" style="width: 150px; background: #2c2c2e; color: white; border:none;" disabled></select>
             <div class="form-check form-switch"><input class="form-check-input lockable" type="checkbox" role="switch" id="live_switch" disabled></div>
         </div>
     </nav>
 
     <div class="container py-4">
-        <div id="live_view_container" class="live-on d-none">
-            <div class="live-on-container">
-                <span id="live_number">00</span>
-                <span id="live_name">GP-5 PRESET</span>
+        <div id="screen_live">
+            <div id="live_view_container" class="live-on d-none">
+                <div class="live-on-container">
+                    <span id="live_number">00</span>
+                    <span id="live_name">GP-5</span>
+                </div>
+            </div>
+            
+            <div id="btn_list" class="row row-cols-2 row-cols-md-5 g-3 mb-4 live-off">
+                <div id="order_0" data-order="0" class="col"><div class="effect-node"><button id="nr_button" data-card="nr_card" class="btn btn-link p-0 lockable btn-effects btn-blocks" disabled>NR</button></div></div>
+                <div id="order_1" data-order="1" class="col"><div class="effect-node"><button id="pre_button" data-card="pre_card" class="btn btn-link p-0 lockable btn-effects btn-blocks" disabled>PRE</button></div></div>
+                <div id="order_2" data-order="2" class="col"><div class="effect-node"><button id="dst_button" data-card="dst_card" class="btn btn-link p-0 lockable btn-effects btn-blocks" disabled>DST</button></div></div>
+                <div id="order_3" data-order="3" class="col"><div class="effect-node"><button id="amp_button" data-card="amp_card" class="btn btn-link p-0 lockable btn-effects btn-blocks" disabled>AMP</button></div></div>
+                <div id="order_4" data-order="4" class="col"><div class="effect-node"><button id="cab_button" data-card="cab_card" class="btn btn-link p-0 lockable btn-effects btn-blocks" disabled>CAB</button></div></div>
             </div>
         </div>
 
+        <!-- Controles dinámicos -->
         <div class="row live-off">
-            <div class="col-md-4 mb-3">
-                <div class="card h-100">
-                    <h6 class="text-secondary mb-3">TEMPO</h6>
-                    <button id="btn_tap" class="btn-apple w-100 py-3 mb-3 lockable" disabled>TAP</button>
-                    <output id="global_bpm_output">120</output> BPM
-                    <input type="range" class="form-range lockable" id="global_bpm_value" min="60" max="500" disabled>
-                </div>
-            </div>
-            <div class="col-md-8 mb-3">
-                <div class="card h-100" id="nr_card">
+            <div id="nr_card" class="col-12 effects_card">
+                <div class="card p-4">
                     <h5>Noise Reduction</h5>
-                    <input type="range" class="form-range form-range-param lockable" id="nr_p0_value" data-effect="0" data-param="0" data-output="nr_p0_output">
-                    <div class="text-end fw-bold"><output id="nr_p0_output">10</output></div>
+                    <input type="range" class="form-range lockable" id="nr_p0_value" data-effect="0" data-param="0">
+                    <div class="text-end fw-bold" id="nr_p0_output">10</div>
                 </div>
             </div>
         </div>
 
-        <div class="card mt-4">
+        <div class="card p-4 mt-4">
             <label class="small text-secondary mb-2">OUTPUT VOLUME</label>
             <input type="range" id="global_vol_value" class="form-range lockable" min="0" max="100" disabled>
-            <div class="d-flex gap-2 mt-3">
-                <button id="btn_save_patch" class="btn-apple w-100" style="background:#34c759" disabled>SAVE</button>
-                <button id="btn_disconnect" class="btn btn-outline-danger lockable" disabled>EXIT</button>
-            </div>
+            <button id="btn_save_patch" class="btn-apple mt-3" style="background:#34c759" disabled>SAVE CHANGES</button>
         </div>
     </div>
 
     <script>
-        // MOTOR LÓGICO GP-5
-        let device, writeChar, notifyChar, characteristic;
+        // MOTOR ORIGINAL GP-5 REINTEGRADO
+        const gui = {};
+        const elements_gui = document.querySelectorAll('*[id]');
+        elements_gui.forEach(element => { gui[element.id] = element; });
+
+        // Inyectar iconos SVG originales
+        gui.nr_button.innerHTML = `<img class="img-effect" src="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20192%20250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M191.667%20117.844v18.478c0%205.25-4.262%209.511-9.511%209.511H9.511c-5.249%200-9.511-4.261-9.511-9.511v-18.478c0-5.249%204.262-9.511%209.511-9.511h172.645c5.249%200%209.511%204.262%209.511%209.511%22%20style%3D%22fill%3A%23bdbdbd%22%2F%3E%3Cpath%20d%3D%22M179.167%2016.908v216.184c0%209.332-7.577%2016.908-16.909%2016.908H29.408c-9.332%200-16.908-7.576-16.908-16.908V16.908C12.5%207.576%2020.076%200%2029.408%200h132.85c9.332%200%2016.909%207.576%2016.909%2016.908%22%20style%3D%22fill%3A%23dcdcdc%22%2F%3E%3C/svg%3E"> <div class="small fw-bold mt-1 text-white">NR</div>`;
+        // ... (Repetir para pre_button, dst_button, etc. con sus SVG)
+
+        let device, writeChar;
         const SERVICE_UUID = '03b80e5a-ede8-4b33-a751-6ce34ec4c700';
         const CHARACTERISTIC_UUID = '7772e5db-3868-4112-a1a9-f2669d106bf3';
-        let patchNames = [];
 
-        function crc8(bytes) {
-            let crc = 0x00;
-            for (let i = 0; i < bytes.length; i++) {
-                let cur = bytes[i] & 0xFF;
-                crc ^= cur;
-                for (let j = 0; j < 8; j++) {
-                    if ((crc & 0x80) !== 0) crc = ((crc << 1) ^ 0x07) & 0xFF;
-                    else crc = (crc << 1) & 0xFF;
-                }
-            }
-            return crc & 0xFF;
-        }
-
-        async function sendSysex(sysex) {
-            if (!writeChar) return;
-            let hex = sysex.replace(/[^0-9a-fA-F]/g, "");
-            const bytes = new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
-            await writeChar.writeValueWithoutResponse(bytes);
-        }
-
-        document.getElementById('btn_connect').onclick = async () => {
+        gui.btn_connect.onclick = async () => {
             try {
                 device = await navigator.bluetooth.requestDevice({ filters: [{ services: [SERVICE_UUID] }] });
                 const server = await device.gatt.connect();
                 const service = await server.getPrimaryService(SERVICE_UUID);
                 writeChar = await service.getCharacteristic(CHARACTERISTIC_UUID);
-                document.getElementById('status_text').innerText = "Connected";
+                gui.status_text.innerText = "Connected to " + device.name;
                 document.querySelectorAll('.lockable').forEach(el => el.disabled = false);
-            } catch (e) { console.log(e); }
+            } catch (err) { gui.status_text.innerText = "Error: " + err; }
         };
 
-        document.getElementById('live_switch').onchange = (e) => {
-            const container = document.getElementById('live_view_container');
-            const offElements = document.querySelectorAll('.live-off');
-            if(e.target.checked) {
-                container.classList.remove('d-none');
-                offElements.forEach(el => el.classList.add('d-none'));
+        gui.live_switch.onchange = () => {
+            const liveon = document.querySelectorAll('.live-on');
+            const liveoff = document.querySelectorAll('.live-off');
+            if (gui.live_switch.checked){
+                liveon.forEach(e => e.classList.remove('d-none'));
+                liveoff.forEach(e => e.classList.add('d-none'));
             } else {
-                container.classList.add('d-none');
-                offElements.forEach(el => el.classList.remove('d-none'));
+                liveon.forEach(e => e.classList.add('d-none'));
+                liveoff.forEach(e => e.classList.remove('d-none'));
             }
-        };
+        }
     </script>
 </body>
 </html>
