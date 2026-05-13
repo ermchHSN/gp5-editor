@@ -1,136 +1,234 @@
-/* --- INICIO DE CSS PERSONALIZADO (NUEVO) --- */
-            .status { font-size: 0.75rem; color: #a0a5b5 !important; }
-            .img-effect { max-width: 46px !important; pointer-events: none; }
-            .img-amp { max-width: 64px !important; pointer-events: none; }
-            
-            /* Pedales inactivos: opacidad y escala de grises para igualar la app */
-            .btn-outline-secondary .img-effect, .btn-outline-secondary .img-amp {
-                opacity: 0.4;
-                filter: grayscale(100%) brightness(0.9);
-            }
-            /* Pedales activos */
-            .btn-secondary .img-effect, .btn-secondary .img-amp {
-                opacity: 1;
-                filter: none;
-            }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valeton GP-200 Editor</title>
+    
+    <!-- Este es tu bloque de CSS personalizado -->
+    <style>
+        /* --- INICIO DE CSS PERSONALIZADO (NUEVO) --- */
+        .status {
+            font-size: 0.75rem;
+            color: #a0a5b5 !important;
+        }
 
-            .display-5 { font-size: 2rem !important; }
-            .display-5 small { font-size: 0.75rem !important; }
-            .order-6 { order: 6 !important; }
-            .order-7 { order: 7 !important; }
-            .order-8 { order: 8 !important; }
-            .order-9 { order: 9 !important; }
-            .order-10 { order: 10 !important; }
-            .order-last { order: 11 !important; }
+        .img-effect {
+            max-width: 46px !important;
+            pointer-events: none;
+        }
 
-            /* --- OVERRIDES VISUALES BASADOS EN LA APP ORIGINAL --- */
-            
-            /* Fondo principal azul marino oscuro */
-            body.bg-dark, .bg-dark, .bg-dark-subtle {
-                background-color: #171b26 !important; 
-                color: #ffffff;
-            }
-            
-            /* Tarjetas, contenedores y paneles de edición */
-            .card, .effects_card, .fondo-b2 {
-                background-color: #212635 !important;
-                border: none !important;
-                border-radius: 12px;
-            }
-            
-            /* Botones primarios y color de acento azul */
-            .btn-primary, .fondo-b1 {
-                background: #2b76ff !important;
-                border-color: #2b76ff !important;
-                color: #ffffff !important;
-                border-radius: 10px;
-            }
-            
-            /* Botones secundarios, dropdowns e inputs (inactivos/gris oscuro) */
-            .btn-secondary, .btn-gradient, .input-group > .btn, .form-select {
-                background-color: #2d3343 !important;
-                background-image: none !important;
-                border-color: #2d3343 !important;
-                color: #ffffff !important;
-                border-radius: 10px;
-            }
-            
-            /* Contenedores de botones sin fondo */
-            .btn-outline-secondary {
-                border-color: transparent !important;
-                background-color: transparent !important;
-                border-radius: 10px;
-            }
-            .btn-outline-secondary:hover {
-                background-color: #2d3343 !important;
-            }
-            
-            /* Borde del pedal seleccionado (azul brillante como en la foto) */
-            .border-light {
-                border: 2px solid #2b76ff !important;
-                box-shadow: none !important;
-                border-radius: 12px;
-                background-color: rgba(43, 118, 255, 0.1) !important;
-            }
+        .img-amp {
+            max-width: 64px !important;
+            pointer-events: none;
+        }
 
-            /* Switch de encendido (NR, etc.) */
-            .form-switch .form-check-input {
-                background-color: #2d3343;
-                border-color: #2d3343;
-                height: 1.5rem;
-                width: 3rem;
-                border-radius: 2rem;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23a0a5b5'/%3e%3c/svg%3e");
-            }
-            .form-switch .form-check-input:checked {
-                background-color: #2b76ff;
-                border-color: #2b76ff;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e");
-            }
+        /* Pedales inactivos: opacidad y escala de grises para igualar la app */
+        .btn-outline-secondary .img-effect,
+        .btn-outline-secondary .img-amp {
+            opacity: 0.4;
+            filter: grayscale(100%) brightness(0.9);
+        }
 
-            /* Estilización de los Sliders (Barra de parámetros) */
-            .form-range::-webkit-slider-runnable-track {
-                background-color: #2d3343;
-                height: 10px;
-                border-radius: 5px;
-            }
-            .form-range::-webkit-slider-thumb {
-                background-color: #ffffff;
-                box-shadow: 0 0 0 2px #2b76ff;
-                width: 16px;
-                height: 16px;
-                margin-top: -3px;
-            }
-            .form-range:focus::-webkit-slider-thumb {
-                box-shadow: 0 0 0 4px #2b76ff;
-            }
+        /* Pedales activos */
+        .btn-secondary .img-effect,
+        .btn-secondary .img-amp {
+            opacity: 1;
+            filter: none;
+        }
 
-            /* Bordes separadores generales */
-            .border-bottom, .border-top {
-                border-color: #2d3343 !important;
-            }
+        .display-5 {
+            font-size: 2rem !important;
+        }
 
-            /* Fix para botones de efectos */
-            .btn-effects, .btn-effects:disabled {
-                border-color: transparent;
-                background-color: transparent;
-            }
+        .display-5 small {
+            font-size: 0.75rem !important;
+        }
+
+        .order-6 {
+            order: 6 !important;
+        }
+
+        .order-7 {
+            order: 7 !important;
+        }
+
+        .order-8 {
+            order: 8 !important;
+        }
+
+        .order-9 {
+            order: 9 !important;
+        }
+
+        .order-10 {
+            order: 10 !important;
+        }
+
+        .order-last {
+            order: 11 !important;
+        }
+
+        /* --- OVERRIDES VISUALES BASADOS EN LA APP ORIGINAL --- */
+
+        /* Fondo principal azul marino oscuro */
+        body.bg-dark,
+        .bg-dark,
+        .bg-dark-subtle {
+            background-color: #171b26 !important;
+            color: #ffffff;
+        }
+
+        /* Tarjetas, contenedores y paneles de edición */
+        .card,
+        .effects_card,
+        .fondo-b2 {
+            background-color: #212635 !important;
+            border: none !important;
+            border-radius: 12px;
+        }
+
+        /* Botones primarios y color de acento azul */
+        .btn-primary,
+        .fondo-b1 {
+            background: #2b76ff !important;
+            border-color: #2b76ff !important;
+            color: #ffffff !important;
+            border-radius: 10px;
+        }
+
+        /* Botones secundarios, dropdowns e inputs (inactivos/gris oscuro) */
+        .btn-secondary,
+        .btn-gradient,
+        .input-group > .btn,
+        .form-select {
+            background-color: #2d3343 !important;
+            background-image: none !important;
+            border-color: #2d3343 !important;
+            color: #ffffff !important;
+            border-radius: 10px;
+        }
+
+        /* Contenedores de botones sin fondo */
+        .btn-outline-secondary {
+            border-color: transparent !important;
+            background-color: transparent !important;
+            border-radius: 10px;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #2d3343 !important;
+        }
+
+        /* Borde del pedal seleccionado (azul brillante como en la foto) */
+        .border-light {
+            border: 2px solid #2b76ff !important;
+            box-shadow: none !important;
+            border-radius: 12px;
+            background-color: rgba(43, 118, 255, 0.1) !important;
+        }
+
+        /* Switch de encendido (NR, etc.) */
+        .form-switch .form-check-input {
+            background-color: #2d3343;
+            border-color: #2d3343;
+            height: 1.5rem;
+            width: 3rem;
+            border-radius: 2rem;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23a0a5b5'/%3e%3c/svg%3e");
+        }
+
+        .form-switch .form-check-input:checked {
+            background-color: #2b76ff;
+            border-color: #2b76ff;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e");
+        }
+
+        /* Estilización de los Sliders (Barra de parámetros) */
+        .form-range::-webkit-slider-runnable-track {
+            background-color: #2d3343;
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .form-range::-webkit-slider-thumb {
+            background-color: #ffffff;
+            box-shadow: 0 0 0 2px #2b76ff;
+            width: 16px;
+            height: 16px;
+            margin-top: -3px;
+        }
+
+        .form-range:focus::-webkit-slider-thumb {
+            box-shadow: 0 0 0 4px #2b76ff;
+        }
+
+        /* Bordes separadores generales */
+        .border-bottom,
+        .border-top {
+            border-color: #2d3343 !important;
+        }
+
+        /* Fix para botones de efectos */
+        .btn-effects,
+        .btn-effects:disabled {
+            border-color: transparent;
+            background-color: transparent;
+        }
+
+        .btn-check + .btn-live {
+            opacity: .25;
+            border-color: transparent;
+        }
+
+        .btn-check:checked + .btn-live {
+            opacity: 1 !important;
+            border-color: transparent;
+        }
+
+        /* Drag & Drop */
+        .effect-order {
+            cursor: grab;
+            user-select: none;
+        }
+
+        .effect-order.drop-before {
+            border-left: 4px solid #00ff99 !important;
+        }
+
+        .effect-order.drop-after {
+            border-right: 4px solid #00ff99 !important;
+        }
+        /* --- FIN DE CSS PERSONALIZADO --- */
+    </style>
+</head>
+<body class="bg-dark">
+    <!-- Aquí es donde debes poner tu contenido HTML original. -->
+    <!-- Como ejemplo, he creado un contenedor básico para probar los estilos. -->
+    <div class="container-fluid p-3">
+        <div class="card p-3 mb-3 text-white">
+            <h1 class="display-5">Preajuste 56 <small>Taylor HSN</small></h1>
+            <p class="status">Este es un estado de ejemplo.</p>
+            <div class="d-flex gap-2">
+                <button class="btn btn-primary">Botón Primario (Acento Azul)</button>
+                <button class="btn btn-secondary">Botón Secundario (Fondo Oscuro)</button>
+                <button class="btn btn-outline-secondary">Botón Outline (Transparente)</button>
+            </div>
             
-            .btn-check + .btn-live { opacity: .25; border-color: transparent; }
-            .btn-check:checked + .btn-live { opacity: 1 !important; border-color: transparent; }
-            
-            /* Drag & Drop */
-            .effect-order { cursor: grab; user-select: none; }
-            .effect-order.drop-before { border-left: 4px solid #00ff99 !important; }
-            .effect-order.drop-after { border-right: 4px solid #00ff99 !important; }
-            /* --- FIN DE CSS PERSONALIZADO --- */
-</style>
-    </head>
-    <body>
-        <!-- Contenedor principal de la aplicación -->
-        <div id="app">
-            <!-- Aquí iría el contenido principal de la página,
-                 que en tu archivo original estaba después del bloque de estilo -->
+            <div class="mt-3">
+                <label for="customRange1" class="form-label text-white">Deslizador de Parámetro</label>
+                <input type="range" class="form-range" id="customRange1" value="50">
+            </div>
+
+            <div class="form-check form-switch mt-3">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label text-white" for="flexSwitchCheckChecked">Interruptor de Efecto (NR)</label>
+            </div>
+
+            <div class="mt-3 order-last">
+                <span class="badge bg-danger">Este elemento es order-last y debe aparecer al final.</span>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
