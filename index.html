@@ -2,275 +2,120 @@
 <html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>GP5 Editor - Studio</title>
     <style>
         :root {
             --apple-bg: #1c1c1e;
             --apple-card: #2c2c2e;
             --apple-blue: #007aff;
-            --apple-gray: #8e8e93;
-            --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --bs-body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-
-        body {
-            background-color: #000;
-            font-family: var(--bs-body-font-family);
-            color: #fff;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Minimalist Header */
-        .top-nav {
-            background: rgba(28, 28, 30, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 0.5px solid #38383a;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 12px 20px;
-        }
-
-        .btn-apple {
-            background: var(--apple-blue);
-            border: none;
-            border-radius: 8px;
-            color: white;
-            padding: 8px 16px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .btn-apple:hover {
-            opacity: 0.9;
-            transform: scale(0.98);
-        }
-
-        .btn-apple:disabled {
-            background: #3a3a3c;
-            color: #8e8e93;
-        }
-
-        /* MODERN LIVE VIEW - Minimalist "Large Blue" Section */
-        .live-on-container {
-            background: linear-gradient(145deg, #007aff, #0056b3);
-            border-radius: 20px;
-            padding: 40px 20px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
-            text-align: center;
-        }
-
-        #live_number {
-            font-size: 80px;
-            font-weight: 700;
-            letter-spacing: -2px;
-            line-height: 1;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        #live_name {
-            font-size: 28px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            opacity: 0.9;
-        }
-
-        .live-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .live-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Effect Blocks */
-        .effect-node {
-            background: var(--apple-card);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid transparent;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .effect-node.active {
-            border-color: var(--apple-blue);
-            background: rgba(0, 122, 255, 0.1);
-        }
-
-        .img-effect {
-            width: 40px;
-            height: auto;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-
-        /* Hide clutter */
-        .buymeacoffee, footer {
-            display: none !important;
-        }
-
-        /* Custom Range Slider */
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            background: transparent;
-        }
-
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            background: #48484a;
-            border-radius: 2px;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-            height: 18px;
-            width: 18px;
-            border-radius: 50%;
-            background: #fff;
-            -webkit-appearance: none;
-            margin-top: -7px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .form-select, .form-control {
-            background-color: #2c2c2e;
-            border: 1px solid #3a3a3c;
-            border-radius: 8px;
-            color: white;
-        }
-
-        .card {
-            background-color: var(--apple-card);
-            border: none;
-            border-radius: 16px;
-        }
+        body { background-color: #000; font-family: var(--bs-body-font-family); color: #fff; -webkit-font-smoothing: antialiased; }
+        .top-nav { background: rgba(28, 28, 30, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 0.5px solid #38383a; position: sticky; top: 0; z-index: 1000; padding: 12px 20px; }
+        .btn-apple { background: var(--apple-blue); border: none; border-radius: 10px; color: white; padding: 10px 20px; font-weight: 600; transition: all 0.2s; }
+        .live-on-container { background: linear-gradient(145deg, #007aff, #0056b3); border-radius: 24px; padding: 60px 20px; margin: 20px 0; text-align: center; box-shadow: 0 15px 35px rgba(0, 122, 255, 0.3); }
+        #live_number { font-size: 100px; font-weight: 800; line-height: 1; display: block; }
+        #live_name { font-size: 32px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
+        .card { background-color: var(--apple-card); border: none; border-radius: 20px; padding: 20px; }
+        .form-range { height: 30px; }
+        footer, .buymeacoffee { display: none !important; }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
     <nav class="top-nav d-flex justify-content-between align-items-center">
+        <button id="btn_connect" class="btn-apple">Connect GP-5</button>
+        <div id="status_text" class="small text-secondary">Ready</div>
         <div class="d-flex align-items-center gap-3">
-            <button id="btn_connect" class="btn-apple">Connect GP-5</button>
-            <div id="status_text" class="small text-secondary">Disconnected</div>
-        </div>
-        <div class="d-flex gap-2">
-            <select id="listPatches" class="form-select form-select-sm lockable" style="width: 180px;" disabled></select>
-            <div class="form-check form-switch mt-1">
-                <input class="form-check-input lockable" type="checkbox" role="switch" id="live_switch" disabled>
-                <label class="form-check-label small" for="live_switch">Live</label>
-            </div>
+            <select id="listPatches" class="form-select form-select-sm lockable" style="width: 150px;" disabled></select>
+            <div class="form-check form-switch"><input class="form-check-input lockable" type="checkbox" role="switch" id="live_switch" disabled></div>
         </div>
     </nav>
 
     <div class="container py-4">
-        
         <div id="live_view_container" class="live-on d-none">
             <div class="live-on-container">
-                <div class="live-controls">
-                    <button id="live_prev" class="live-btn lockable" disabled>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-                    </button>
-                    <div>
-                        <span id="live_number">00</span>
-                        <span id="live_name">PRESET NAME</span>
-                    </div>
-                    <button id="live_next" class="live-btn lockable" disabled>
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                    </button>
-                </div>
+                <span id="live_number">00</span>
+                <span id="live_name">GP-5 PRESET</span>
             </div>
         </div>
 
-        <div class="row g-3 mb-4 live-off" id="btn_list">
-            <div id="order_0" data-order="0" class="col effect-order draggable">
-                <div class="effect-node" id="node_nr">
-                    <button id="nr_button" data-card="nr_card" class="btn btn-link p-0 lockable" disabled>
-                        <img class="img-effect" src="data:image/svg+xml,...(svg_del_noise_gate)...">
-                        <div class="small fw-bold">NR</div>
-                    </button>
-                </div>
-            </div>
-            </div>
-
-        <div class="row">
+        <div class="row live-off">
             <div class="col-md-4 mb-3">
-                <div class="card p-3 h-100">
+                <div class="card h-100">
                     <h6 class="text-secondary mb-3">TEMPO</h6>
                     <button id="btn_tap" class="btn-apple w-100 py-3 mb-3 lockable" disabled>TAP</button>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="small">BPM: <output id="global_bpm_output">120</output></span>
-                        <input type="range" class="form-range w-50 lockable" id="global_bpm_value" min="60" max="500" disabled>
-                    </div>
+                    <output id="global_bpm_output">120</output> BPM
+                    <input type="range" class="form-range lockable" id="global_bpm_value" min="60" max="500" disabled>
                 </div>
             </div>
-
             <div class="col-md-8 mb-3">
-                <div id="main_params" class="card p-3 h-100">
-                    <div id="nr_card" class="effects_card">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="m-0">Noise Reduction</h5>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input form-check-effect lockable" type="checkbox" id="nr_switch" data-button="nr_button">
-                            </div>
-                        </div>
-                        <label class="small text-secondary">THRESHOLD</label>
-                        <input type="range" class="form-range form-range-param lockable" id="nr_p0_value" data-effect="0" data-param="0" data-output="nr_p0_output">
-                        <div class="text-end small"><output id="nr_p0_output">10</output></div>
-                    </div>
-                    </div>
+                <div class="card h-100" id="nr_card">
+                    <h5>Noise Reduction</h5>
+                    <input type="range" class="form-range form-range-param lockable" id="nr_p0_value" data-effect="0" data-param="0" data-output="nr_p0_output">
+                    <div class="text-end fw-bold"><output id="nr_p0_output">10</output></div>
+                </div>
             </div>
         </div>
 
-        <div class="card p-3 mt-4">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <label class="small text-secondary">GLOBAL VOLUME</label>
-                    <input type="range" id="global_vol_value" class="form-range lockable" min="0" max="100" disabled>
-                </div>
-                <div class="col-md-4 d-flex gap-2">
-                    <button id="btn_save_patch" class="btn-apple flex-grow-1" style="background: #34c759;" disabled>Save Patch</button>
-                    <button id="btn_disconnect" class="btn btn-outline-danger btn-sm lockable" disabled>Exit</button>
-                </div>
+        <div class="card mt-4">
+            <label class="small text-secondary mb-2">OUTPUT VOLUME</label>
+            <input type="range" id="global_vol_value" class="form-range lockable" min="0" max="100" disabled>
+            <div class="d-flex gap-2 mt-3">
+                <button id="btn_save_patch" class="btn-apple w-100" style="background:#34c759" disabled>SAVE</button>
+                <button id="btn_disconnect" class="btn btn-outline-danger lockable" disabled>EXIT</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Aquí va TODA tu lógica original de Bluetooth, funciones CRC8, 
-        // sendParamChange, handleNotification, etc.
-        // Solo asegúrate de que los IDs coincidan con el nuevo diseño.
-        
-        // Ajuste para el Live View Minimalista
-        const live_switch = document.getElementById('live_switch');
-        live_switch.onchange = () => {
-            const liveOn = document.querySelectorAll('.live-on');
-            const liveOff = document.querySelectorAll('.live-off');
-            if(live_switch.checked) {
-                liveOn.forEach(el => el.classList.remove('d-none'));
-                liveOff.forEach(el => el.classList.add('d-none'));
+        // MOTOR LÓGICO GP-5
+        let device, writeChar, notifyChar, characteristic;
+        const SERVICE_UUID = '03b80e5a-ede8-4b33-a751-6ce34ec4c700';
+        const CHARACTERISTIC_UUID = '7772e5db-3868-4112-a1a9-f2669d106bf3';
+        let patchNames = [];
+
+        function crc8(bytes) {
+            let crc = 0x00;
+            for (let i = 0; i < bytes.length; i++) {
+                let cur = bytes[i] & 0xFF;
+                crc ^= cur;
+                for (let j = 0; j < 8; j++) {
+                    if ((crc & 0x80) !== 0) crc = ((crc << 1) ^ 0x07) & 0xFF;
+                    else crc = (crc << 1) & 0xFF;
+                }
+            }
+            return crc & 0xFF;
+        }
+
+        async function sendSysex(sysex) {
+            if (!writeChar) return;
+            let hex = sysex.replace(/[^0-9a-fA-F]/g, "");
+            const bytes = new Uint8Array(hex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+            await writeChar.writeValueWithoutResponse(bytes);
+        }
+
+        document.getElementById('btn_connect').onclick = async () => {
+            try {
+                device = await navigator.bluetooth.requestDevice({ filters: [{ services: [SERVICE_UUID] }] });
+                const server = await device.gatt.connect();
+                const service = await server.getPrimaryService(SERVICE_UUID);
+                writeChar = await service.getCharacteristic(CHARACTERISTIC_UUID);
+                document.getElementById('status_text').innerText = "Connected";
+                document.querySelectorAll('.lockable').forEach(el => el.disabled = false);
+            } catch (e) { console.log(e); }
+        };
+
+        document.getElementById('live_switch').onchange = (e) => {
+            const container = document.getElementById('live_view_container');
+            const offElements = document.querySelectorAll('.live-off');
+            if(e.target.checked) {
+                container.classList.remove('d-none');
+                offElements.forEach(el => el.classList.add('d-none'));
             } else {
-                liveOn.forEach(el => el.classList.add('d-none'));
-                liveOff.forEach(el => el.classList.remove('d-none'));
+                container.classList.add('d-none');
+                offElements.forEach(el => el.classList.remove('d-none'));
             }
         };
     </script>
